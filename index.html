@@ -31,20 +31,16 @@
 
         @keyframes floatingCard {
             0% {
-                transform: translateY(0) rotate(0deg);
-                filter: drop-shadow(0 10px 30px rgba(255, 255, 255, 0.1));
+                transform: translateY(0);
+                filter: drop-shadow(0 5px 15px rgba(255, 255, 255, 0.1));
             }
-            25% {
-                transform: translateY(-8px) rotate(0.5deg);
-                filter: drop-shadow(0 15px 40px rgba(255, 255, 255, 0.15));
-            }
-            75% {
-                transform: translateY(4px) rotate(-0.5deg);
-                filter: drop-shadow(0 5px 20px rgba(255, 255, 255, 0.08));
+            50% {
+                transform: translateY(-3px);
+                filter: drop-shadow(0 8px 20px rgba(255, 255, 255, 0.12));
             }
             100% {
-                transform: translateY(0) rotate(0deg);
-                filter: drop-shadow(0 10px 30px rgba(255, 255, 255, 0.1));
+                transform: translateY(0);
+                filter: drop-shadow(0 5px 15px rgba(255, 255, 255, 0.1));
             }
         }
 
@@ -62,16 +58,19 @@
 
         @keyframes revealCard {
             0% {
-                clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
-                transform: translateY(50px);
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transform: translateY(-30px);
+                opacity: 0;
             }
             30% {
-                clip-path: polygon(0 70%, 100% 70%, 100% 100%, 0 100%);
-                transform: translateY(30px);
+                clip-path: polygon(0 0, 100% 0, 100% 30%, 0 30%);
+                transform: translateY(-20px);
+                opacity: 0.5;
             }
             100% {
                 clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
                 transform: translateY(0);
+                opacity: 1;
             }
         }
 
@@ -153,8 +152,8 @@
             display: block;
             filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.1));
             transition: all 0.5s ease;
-            animation: revealCard 1.5s cubic-bezier(0.33, 1, 0.68, 1) forwards,
-                       floatingCard 6s ease-in-out infinite 1.5s;
+            animation: revealCard 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards,
+                       floatingCard 4s ease-in-out infinite 1.8s;
         }
 
         .button-overlay {
