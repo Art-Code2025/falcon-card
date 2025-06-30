@@ -175,8 +175,8 @@
             align-items: center;
             text-decoration: none;
             -webkit-tap-highlight-color: transparent;
-            opacity: 1;
-            border: 2px solid rgba(255, 0, 0, 0.5);
+            opacity: 0;
+            animation: fadeInScale 0.5s ease-out forwards;
         }
 
         .button-overlay:hover {
@@ -192,22 +192,22 @@
 
         .phone-btn {
             top: 43.5%;
-            border-color: rgba(255, 0, 0, 0.5);
+            animation-delay: 0.3s;
         }
 
         .whatsapp-btn {
             top: 53.2%;
-            border-color: rgba(0, 255, 0, 0.5);
+            animation-delay: 0.5s;
         }
 
         .email-btn {
             top: 63.8%;
-            border-color: rgba(0, 0, 255, 0.5);
+            animation-delay: 0.7s;
         }
 
         .website-btn {
             top: 74%;
-            border-color: rgba(255, 255, 0, 0.5);
+            animation-delay: 0.9s;
         }
 
         @media (max-width: 480px) {
