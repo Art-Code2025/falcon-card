@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Digital Business Card</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <img src="Screenshot.png" usemap="#contact-map" width="722" height="1275" alt="Business Card" />
+
+  <map name="contact-map">
+    <!-- Phone button -->
+    <area shape="rect" coords="160,670,560,725" href="tel:+966500081927" alt="Phone">
+    
+    <!-- WhatsApp button -->
+    <area shape="rect" coords="160,745,560,800" href="https://wa.me/966500081927" alt="WhatsApp" target="_blank">
+    
+    <!-- Email button -->
+    <area shape="rect" coords="160,820,560,875" href="mailto:caprephe@gmail.com" alt="Email">
+
+    <!-- Website button -->
+    <area shape="rect" coords="160,895,560,950" href="https://www.falcons-hk.com" alt="Website" target="_blank">
+  </map>
+</body>
+</html>
