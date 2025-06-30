@@ -75,40 +75,17 @@
             left: 24%;
             right: 22%;
             height: 55px;
-            background-color: rgba(255, 0, 0, 0.3);
-            border: 2px solid red;
+            background-color: transparent;
             border-radius: 12px;
             cursor: pointer;
+            transition: all 0.3s ease;
             display: flex;
             justify-content: center;
             align-items: center;
             text-decoration: none;
-            font-family: Arial, sans-serif;
-            color: white;
-            font-size: 14px;
-        }
-
-        .phone-btn {
-            top: 45.2%;
-            background-color: rgba(255, 0, 0, 0.3);
-        }
-
-        .whatsapp-btn {
-            top: 55%;
-            background-color: rgba(0, 255, 0, 0.3);
-            border-color: green;
-        }
-
-        .email-btn {
-            top: 65.5%;
-            background-color: rgba(0, 0, 255, 0.3);
-            border-color: blue;
-        }
-
-        .website-btn {
-            top: 75.8%;
-            background-color: rgba(255, 255, 0, 0.3);
-            border-color: yellow;
+            -webkit-tap-highlight-color: transparent;
+            opacity: 0;
+            animation: fadeInScale 0.5s ease-out forwards;
         }
 
         .button-overlay:hover {
@@ -120,6 +97,26 @@
         .button-overlay:active {
             transform: scale(0.98);
             background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .phone-btn {
+            top: 45.2%;
+            animation-delay: 0.3s;
+        }
+
+        .whatsapp-btn {
+            top: 55%;
+            animation-delay: 0.5s;
+        }
+
+        .email-btn {
+            top: 65.5%;
+            animation-delay: 0.7s;
+        }
+
+        .website-btn {
+            top: 75.8%;
+            animation-delay: 0.9s;
         }
 
         @media (max-width: 480px) {
@@ -154,10 +151,10 @@
     <div class="card-container">
         <img src="falcon.png" alt="Business Card" class="card-image">
         
-        <a href="tel:+966500081927" class="button-overlay phone-btn">Phone</a>
-        <a href="https://wa.me/966500081927" class="button-overlay whatsapp-btn">WhatsApp</a>
-        <a href="mailto:caprephe@gmail.com" class="button-overlay email-btn">Email</a>
-        <a href="https://www.falcons-hk.com" class="button-overlay website-btn">Website</a>
+        <a href="tel:+966500081927" class="button-overlay phone-btn" aria-label="Call us"></a>
+        <a href="https://wa.me/966500081927" class="button-overlay whatsapp-btn" target="_blank" aria-label="Contact on WhatsApp"></a>
+        <a href="mailto:caprephe@gmail.com" class="button-overlay email-btn" aria-label="Send email"></a>
+        <a href="https://www.falcons-hk.com" class="button-overlay website-btn" target="_blank" aria-label="Visit website"></a>
     </div>
 </body>
 </html>
