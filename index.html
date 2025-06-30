@@ -11,6 +11,41 @@
             box-sizing: border-box;
         }
 
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes floatingCard {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @keyframes buttonGlow {
+            0% {
+                box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            }
+            100% {
+                box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+            }
+        }
+
         body {
             background-color: #000;
             min-height: 100vh;
@@ -25,12 +60,14 @@
             width: 100%;
             max-width: 625px;
             margin: 0 auto;
+            animation: fadeInScale 1s ease-out forwards, floatingCard 3s ease-in-out infinite;
         }
 
         .card-image {
             width: 100%;
             height: auto;
             display: block;
+            filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.1));
         }
 
         .button-overlay {
@@ -47,32 +84,39 @@
             align-items: center;
             text-decoration: none;
             -webkit-tap-highlight-color: transparent;
+            opacity: 0;
+            animation: fadeInScale 0.5s ease-out forwards;
+        }
+
+        .phone-btn {
+            top: 51%;
+            animation-delay: 0.3s;
+        }
+
+        .whatsapp-btn {
+            top: 57.8%;
+            animation-delay: 0.5s;
+        }
+
+        .email-btn {
+            top: 64.6%;
+            animation-delay: 0.7s;
+        }
+
+        .website-btn {
+            top: 71.4%;
+            animation-delay: 0.9s;
         }
 
         .button-overlay:hover {
             background-color: rgba(255, 255, 255, 0.1);
+            animation: buttonGlow 2s infinite;
+            transform: scale(1.02);
         }
 
         .button-overlay:active {
             transform: scale(0.98);
             background-color: rgba(255, 255, 255, 0.15);
-        }
-
-        /* Button positions based on original image coordinates */
-        .phone-btn {
-            top: 52.5%;
-        }
-
-        .whatsapp-btn {
-            top: 59.3%;
-        }
-
-        .email-btn {
-            top: 66.1%;
-        }
-
-        .website-btn {
-            top: 72.9%;
         }
 
         @media (max-width: 480px) {
@@ -83,6 +127,21 @@
             .button-overlay {
                 height: 48px;
             }
+
+            .card-container {
+                animation: fadeInScale 1s ease-out forwards;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .card-container,
+            .button-overlay {
+                animation: none;
+            }
+            
+            .button-overlay {
+                opacity: 1;
+            }
         }
     </style>
 </head>
@@ -92,7 +151,7 @@
         
         <a href="tel:+966500081927" class="button-overlay phone-btn" aria-label="Call us"></a>
         <a href="https://wa.me/966500081927" class="button-overlay whatsapp-btn" target="_blank" aria-label="Contact on WhatsApp"></a>
-        <a href="mailto:caprephe@gmail.com" class="button-overlay email-btn" aria-label="Send email"></a>
+        <a href="mailto:info@falcons-hk.com" class="button-overlay email-btn" aria-label="Send email"></a>
         <a href="https://www.falcons-hk.com" class="button-overlay website-btn" target="_blank" aria-label="Visit website"></a>
     </div>
 </body>
