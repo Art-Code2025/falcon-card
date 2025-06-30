@@ -89,7 +89,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 40px 20px;
             overflow: hidden;
             position: relative;
         }
@@ -117,7 +117,8 @@
             margin: 0 auto;
             perspective: 1000px;
             transform-style: preserve-3d;
-            overflow: hidden;
+            overflow: visible;
+            padding-bottom: 20px;
         }
 
         .card-container::before {
@@ -154,6 +155,8 @@
             transition: all 0.5s ease;
             animation: revealCard 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards,
                        floatingCard 4s ease-in-out infinite 1.8s;
+            max-height: calc(100vh - 80px);
+            object-fit: contain;
         }
 
         .button-overlay {
@@ -207,7 +210,7 @@
 
         @media (max-width: 480px) {
             body {
-                padding: 10px;
+                padding: 20px 10px;
             }
             
             .button-overlay {
@@ -217,7 +220,11 @@
             }
 
             .card-container {
-                animation: fadeInScale 1s ease-out forwards;
+                padding-bottom: 10px;
+            }
+
+            .card-image {
+                max-height: calc(100vh - 40px);
             }
         }
 
