@@ -1,39 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Digital Business Card</title>
-  <style>
-    body {
-      margin: 0;
-      background-color: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Business Card</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .card-container {
+            position: relative;
+            width: 100%;
+            max-width: 625px;
+            margin: 0 auto;
+        }
+
+        .card-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .button-overlay {
+            position: absolute;
+            left: 17.6%;
+            right: 17.6%;
+            height: 52px;
+            background-color: transparent;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .button-overlay:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .button-overlay:active {
+            transform: scale(0.98);
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Button positions based on original image coordinates */
+        .phone-btn {
+            top: 52.5%;
+        }
+
+        .whatsapp-btn {
+            top: 59.3%;
+        }
+
+        .email-btn {
+            top: 66.1%;
+        }
+
+        .website-btn {
+            top: 72.9%;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .button-overlay {
+                height: 48px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <img src="falcon.png" usemap="#contact-map" width="625" height="1103" alt="Business Card" />
-
-  <map name="contact-map">
-    <!-- Phone button -->
-    <area shape="rect" coords="110,580,510,635" href="tel:+966500081927" alt="Phone">
-    
-    <!-- WhatsApp button -->
-    <area shape="rect" coords="110,655,510,710" href="https://wa.me/966500081927" alt="WhatsApp" target="_blank">
-    
-    <!-- Email button -->
-    <area shape="rect" coords="110,730,510,785" href="mailto:caprephe@gmail.com" alt="Email">
-
-    <!-- Website button -->
-    <area shape="rect" coords="110,805,510,860" href="https://www.falcons-hk.com" alt="Website" target="_blank">
-  </map>
+    <div class="card-container">
+        <img src="falcon.png" alt="Business Card" class="card-image">
+        
+        <a href="tel:+966500081927" class="button-overlay phone-btn" aria-label="Call us"></a>
+        <a href="https://wa.me/966500081927" class="button-overlay whatsapp-btn" target="_blank" aria-label="Contact on WhatsApp"></a>
+        <a href="mailto:caprephe@gmail.com" class="button-overlay email-btn" aria-label="Send email"></a>
+        <a href="https://www.falcons-hk.com" class="button-overlay website-btn" target="_blank" aria-label="Visit website"></a>
+    </div>
 </body>
 </html>
