@@ -60,6 +60,30 @@
             }
         }
 
+        @keyframes revealCard {
+            0% {
+                clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+                transform: translateY(50px);
+            }
+            30% {
+                clip-path: polygon(0 70%, 100% 70%, 100% 100%, 0 100%);
+                transform: translateY(30px);
+            }
+            100% {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes cardShine {
+            0% {
+                background-position: -100% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
         body {
             background: radial-gradient(circle at center, #111 0%, #000 100%);
             min-height: 100vh;
@@ -68,6 +92,23 @@
             align-items: center;
             padding: 20px;
             overflow: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(
+                circle at 50% 50%,
+                rgba(255, 255, 255, 0.05) 0%,
+                transparent 50%
+            );
+            pointer-events: none;
+            animation: fadeInScale 2s ease-out forwards;
         }
 
         .card-container {
@@ -75,10 +116,35 @@
             width: 100%;
             max-width: 625px;
             margin: 0 auto;
-            animation: fadeInScale 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards,
-                       floatingCard 6s ease-in-out infinite;
             perspective: 1000px;
             transform-style: preserve-3d;
+            overflow: hidden;
+        }
+
+        .card-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 20%,
+                rgba(255, 255, 255, 0.1) 40%,
+                rgba(255, 255, 255, 0.15) 50%,
+                rgba(255, 255, 255, 0.1) 60%,
+                transparent 80%
+            );
+            animation: cardShine 3s linear infinite;
+            pointer-events: none;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .card-container:hover::before {
+            opacity: 1;
         }
 
         .card-image {
@@ -87,6 +153,8 @@
             display: block;
             filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.1));
             transition: all 0.5s ease;
+            animation: revealCard 1.5s cubic-bezier(0.33, 1, 0.68, 1) forwards,
+                       floatingCard 6s ease-in-out infinite 1.5s;
         }
 
         .button-overlay {
@@ -156,7 +224,10 @@
 
         @media (prefers-reduced-motion: reduce) {
             .card-container,
-            .button-overlay {
+            .button-overlay,
+            .card-image,
+            body::before,
+            .card-container::before {
                 animation: none;
             }
             
