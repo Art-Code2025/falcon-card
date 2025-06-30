@@ -9,6 +9,16 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            outline: none;
+        }
+
+        *:focus {
+            outline: none;
+        }
+
+        *:active {
+            -webkit-tap-highlight-color: transparent;
         }
 
         @keyframes fadeInScale {
@@ -92,6 +102,9 @@
             padding: 20px;
             overflow: hidden;
             position: relative;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            -webkit-touch-callout: none;
         }
 
         body::before {
@@ -177,6 +190,7 @@
             -webkit-tap-highlight-color: transparent;
             opacity: 0;
             animation: fadeInScale 0.5s ease-out forwards;
+            outline: none;
         }
 
         .button-overlay:hover {
@@ -185,9 +199,10 @@
             transform: scale(1.02);
         }
 
-        .button-overlay:active {
-            transform: scale(0.98);
-            background-color: rgba(255, 255, 255, 0.15);
+        .button-overlay:active,
+        .button-overlay:focus {
+            outline: none;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .phone-btn {
